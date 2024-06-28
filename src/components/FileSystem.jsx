@@ -36,10 +36,9 @@ const getLastId = (treeData) => {
   return 0;
 };
 
-function FileSystem() {
+function FileSystem(props) {
   const [treeData, setTreeData] = useState(SampleData);
-  const [selectedNode, setSelectedNode] = useState(null);
-  const handleSelect = (node) => setSelectedNode(node);
+  const handleSelect = (node) => props.setSelectedNode(node);
 
   function handleDrop(newTree) {
     setTreeData(newTree);
@@ -124,7 +123,7 @@ function FileSystem() {
       <CssBaseline />
       <DndProvider backend={MultiBackend} options={getBackendOptions()}>
         <div className={styles.app}>
-          <div>
+          <div className={styles.addNode}>
             <Button onClick={handleOpenDialog} startIcon={<AddIcon />}>
               Add Node
             </Button>
@@ -144,7 +143,7 @@ function FileSystem() {
                 node={node}
                 {...options}
                 onDelete={handleDelete}
-                isSelected={node.id === selectedNode?.id}
+                isSelected={node.id === props.selectedNode?.id}
                 onSelect={handleSelect}
                 // onCopy={handleCopy}
               />
@@ -158,9 +157,6 @@ function FileSystem() {
               draggingSource: styles.draggingSource,
               dropTarget: styles.dropTarget
             }}
-          />
-          <SelectedFileViewer 
-            node={selectedNode ? selectedNode : null}
           />
         </div>
       </DndProvider>
