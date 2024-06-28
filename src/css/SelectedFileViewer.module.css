@@ -1,10 +1,27 @@
 .current {
-    background-color: #f3f3f3;
+    background-color: #fffccc;
     margin: 8px;
     padding: 8px;
+    border-radius: 8px;
   }
   
   .currentLabel {
     font-weight: bold;
+    font-size: x-large;
     margin-inline-start: 0.5em;
+  }
+
+  .currentBody {
+    margin-inline-start: 0.5em;
+    padding-top: 8px;
+  }
+
+  .currentBody span {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .currentBody label {
+    font-weight: normal;
   }

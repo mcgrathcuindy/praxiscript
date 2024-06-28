@@ -12,7 +12,7 @@ export const TypeIcon = (props) => {
   switch (props.fileType) {
     case "image":
       return <ImageIcon />;
-    case "csv":
+    case "drill":
       return <ListAltIcon />;
     case "text":
       return <DescriptionIcon />;
